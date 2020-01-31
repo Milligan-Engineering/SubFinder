@@ -19,7 +19,7 @@ int main()
 	cin >> date;
 	cout << "Enter the subject...";
 	cin >> subject;
-	cout << "Enter school location(NGS)...";
+	cout << "Enter school location(i.e. NGS)...";
 	cin >> school_location;
 	cout << "Enter room number...";
 	cin >> room_number;
