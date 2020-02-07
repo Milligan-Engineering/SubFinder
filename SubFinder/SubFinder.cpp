@@ -10,7 +10,7 @@
 using namespace std;
 
 int  date, room_number, number_students, age, x, periodNumber, a[8], ft,fs;
-const int pay = 15;
+const int MAXPERIOD = 8;
 string  nameTeacher, month, subjectTeacher, school_location, emailTeacher, nameSub, subjectSub, emailSub;
 
 int main()
@@ -37,20 +37,30 @@ int main()
 		cin >> room_number;
 		cout << "Enter how many class periods there will be...";
 		cin >> periodNumber;
-			for (int i = 0; i < periodNumber; i++)
-			{
-				cout << "Enter the number of sudents in each period..." << i << endl; //these should be enter in order, so the first number of students you put in that should be your first period 
-				cin >> a[i];
-			}
-			cout << "if the following information is correct please enter 1\n";
-			cout << nameTeacher << endl << emailTeacher << endl << "The subsitution will take place on " << month << " " << date << endl << "The subsitution will take place at " << school_location << " in room " << room_number << endl;
-			//I would like to add a way to show the total about of students they would have from adding up all the imputs from the array
-			cin >> ft;
-				if (ft==1)
+		while (periodNumber > MAXPERIOD)
+		{
+			cout << "this is a invalid period number, please enter the amount of class periods you have in a day...";
+			cin >> periodNumber;
+		}
+			int totalStudents = 0;
+				for (int i = 0; i < periodNumber; i++)
 				{
-					cout << "thank you for using SubFinder, we will be sending you a email once your job has been taken\nhave a nice day :)";
-					return 0;
+					cout << "Enter the number of sudents in each period..." << i << endl; //these should be enter in order, so the first number of students
+					//you put in that should be your first period 
+					cin >> a[i];
+					totalStudents += a[i];
 				}
+				cout << "if the following information is correct please enter 1\n";
+				cout << nameTeacher << endl << emailTeacher << endl << "The subsitution will take place on " << month << " " << date << endl;
+				cout << "The subsitution will take place at " << school_location << " in room " << room_number << endl;
+				cout << "the total number of students you have throughout the day is " << totalStudents<<endl;
+				//I would like to add a way to show the total about of students they would have from adding up all the imputs from the array
+				cin >> ft;
+					if (ft==1)
+					{
+						cout << "thank you for using SubFinder, we will be sending you a email once your job has been taken\nhave a nice day :)";
+						return 0;
+					}
 	}
 	else
 	{
@@ -67,7 +77,7 @@ int main()
 		cin >> fs;
 			if (fs==1)
 			{
-				cout << "thank you for using subfinder, here is a list of available job opportunities\nP.S.just a reminder the current county you are in has a average pay of $ "<<pay<<" an hour \nhave a nice day :)";
+				cout << "thank you for using subfinder, here is a list of available job opportunities\nhave a nice day :)";
 				return 0;
 			}
 	}
