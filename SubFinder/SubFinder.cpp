@@ -55,6 +55,7 @@ int main()
 				cout << "The subsitution will take place at " << school_location << " in room " << room_number << endl;
 				cout << "the total number of students you have throughout the day is " << totalStudents<<endl;
 				//I would like to add a way to show the total about of students they would have from adding up all the imputs from the array
+				cout << "Enter 1 if finished?";
 				cin >> ft;
 					if (ft==1)
 					{
@@ -74,6 +75,7 @@ int main()
 		cin >> emailSub;
 		cout << "If the following information is correct please enter 1\n";
 		cout << nameSub << endl << emailSub << endl << "Your perferred subject is " << subjectSub << endl;
+		cout << "Enter 1 if finished?";
 		cin >> fs;
 			if (fs==1)
 			{
