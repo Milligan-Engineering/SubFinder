@@ -9,7 +9,7 @@
 #include <string>
 using namespace std;
 
-int  date, room_number, number_students, age, x, periodNumber, number_of_students[8], final_check_teacher, final_check_sub;
+int  date, room_number, number_students, age, x, periodNumber, number_of_students[8], final_check_teacher, final_check_sub, choiceTeacher, choiceSub;
 const int MAXPERIOD = 8;
 string  nameTeacher, month, subjectTeacher, school_location, emailTeacher, nameSub, subjectSub, emailSub;
 
@@ -30,7 +30,30 @@ int main()
 		cout << "Enter day of the substition(i.e. 12)...";
 		cin >> date;
 		cout << "Enter the subject...";
-		cin >> subjectTeacher;
+		cout << "Choose 1 to select MATH. \n"
+			<< "Choose 2 to select ENGLISH. \n"
+			<< "Choose 3 to select HISTORY. \n"
+			<< "Choose 4 to selcet SCIENCE. \n"
+			<< "Choose 5 to selcet OTHER. \n";
+		cin >> choiceTeacher;
+		switch (choiceTeacher)
+		{
+		case 1:
+			subjectTeacher = "math";
+			break;
+		case 2:
+			subjectTeacher = "english";
+			break;
+		case 3:
+			subjectTeacher = "history";
+			break;
+		case 4:
+			subjectTeacher = "science";
+			break;
+		case 5:
+			subjectTeacher = "other";
+			break;
+		}
 		cout << "Enter school location(i.e. ngs)...";
 		cin >> school_location;
 		cout << "Enter room number...";
@@ -67,7 +90,30 @@ int main()
 		cout << "Enter your name...";
 		cin >> nameSub;
 		cout << "Enter your preferred subject...";
-		cin >> subjectSub;
+		cout << "Choose 1 to select MATH. \n"
+			<< "Choose 2 to select ENGLISH. \n"
+			<< "Choose 3 to select HISTORY. \n"
+			<< "Choose 4 to selcet SCIENCE. \n"
+			<< "Choose 5 to selcet OTHER. \n";
+		cin >> choiceSub;
+		switch (choiceSub)
+		{
+		case 1:
+			subjectSub = "math";
+			break;
+		case 2:
+			subjectSub = "english";
+			break;
+		case 3:
+			subjectSub = "history";
+			break;
+		case 4:
+			subjectSub = "science";
+			break;
+		case 5:
+			subjectSub = "other";
+			break;
+		}
 		cout << "Enter email...";
 		cin >> emailSub;
 		cout << nameSub << endl << emailSub << endl << "Your perferred subject is " << subjectSub << endl;
