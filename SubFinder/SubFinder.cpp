@@ -9,7 +9,7 @@
 #include <string>
 using namespace std;
 
-int  date, room_number, number_students, age, x, periodNumber, a[8], ft,fs;
+int  date, room_number, number_students, age, x, periodNumber, number_of_students[8], final_check_teacher, final_check_sub;
 const int MAXPERIOD = 8;
 string  nameTeacher, month, subjectTeacher, school_location, emailTeacher, nameSub, subjectSub, emailSub;
 
@@ -17,7 +17,7 @@ int main()
 {
 	cout << "If you are a teacher please enter 1, if you are a substitute please enter 0...";
 	cin >> x;
-	if (x==1)
+	if (x == 1)
 	{
 		cout << "welcome teacher\n";
 		cout << "note: when entering in your information please use no spaces and no capital letters\n";
@@ -37,28 +37,28 @@ int main()
 		cin >> room_number;
 		cout << "Enter how many class periods there will be...";
 		cin >> periodNumber;
-		while (periodNumber > MAXPERIOD)
-		{
-			cout << "this is a invalid period number, please enter the amount of class periods you have in a day...";
-			cin >> periodNumber;
-		}
+			while (periodNumber > MAXPERIOD)
+			{
+				cout << "this is a invalid period number, please enter the amount of class periods you have in a day...";
+				cin >> periodNumber;
+			}
 			int totalStudents = 0;
 				for (int i = 0; i < periodNumber; i++)
 				{
 					cout << "Enter the number of sudents in each period..." << i << endl; 
-					cin >> a[i];
-					totalStudents += a[i];
+					cin >> number_of_students[i];
+					totalStudents += number_of_students[i];
 				}
-				cout << "if the following information is correct please enter 1\n";
 				cout << nameTeacher << endl << emailTeacher << endl << "The subsitution will take place on " << month << " " << date << endl;
 				cout << "The subsitution will take place at " << school_location << " in room " << room_number << endl;
-				cout << "the total number of students you have throughout the day is " << totalStudents<<endl;
-				cin >> ft;
-					if (ft==1)
-					{
-						cout << "thank you for using SubFinder, we will be sending you a email once your job has been taken\nhave a nice day :)";
-						return 0;
-					}
+				cout << "the total number of students you have throughout the day is " << totalStudents << endl;
+				cout << "Enter 1 if finished?";
+				cin >> final_check_teacher;
+				if (final_check_teacher == 1)
+				{
+					cout << "thank you for using SubFinder, we will be sending you a email once your job has been taken\nhave a nice day :)";
+					return 0;
+				}
 	}
 	else
 	{
@@ -70,10 +70,10 @@ int main()
 		cin >> subjectSub;
 		cout << "Enter email...";
 		cin >> emailSub;
-		cout << "If the following information is correct please enter 1\n";
 		cout << nameSub << endl << emailSub << endl << "Your perferred subject is " << subjectSub << endl;
-		cin >> fs;
-			if (fs==1)
+		cout << "Enter 1 if finished?";
+		cin >> final_check_sub;
+			if (final_check_sub == 1)
 			{
 				cout << "thank you for using subfinder, here is a list of available job opportunities\nhave a nice day :)";
 				return 0;
