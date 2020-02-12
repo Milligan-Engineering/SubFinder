@@ -1,9 +1,9 @@
 // File Name: SubFinder.cpp
 // Author: Alayna Perryman
 // Email Address: Amperryman@my.milligan.edu
-// Assignment Number: PM04
+// Assignment Number: PM05
 // Description: Program to conect teachers and substitues 
-// Last changed: 02/06/20
+// Last changed: 02/11/20
 
 #include <iostream>
 #include <string>
@@ -45,8 +45,7 @@ int main()
 			int totalStudents = 0;
 				for (int i = 0; i < periodNumber; i++)
 				{
-					cout << "Enter the number of sudents in each period..." << i << endl; //these should be enter in order, so the first number of students
-					//you put in that should be your first period 
+					cout << "Enter the number of sudents in each period..." << i << endl; 
 					cin >> a[i];
 					totalStudents += a[i];
 				}
@@ -54,7 +53,6 @@ int main()
 				cout << nameTeacher << endl << emailTeacher << endl << "The subsitution will take place on " << month << " " << date << endl;
 				cout << "The subsitution will take place at " << school_location << " in room " << room_number << endl;
 				cout << "the total number of students you have throughout the day is " << totalStudents<<endl;
-				//I would like to add a way to show the total about of students they would have from adding up all the imputs from the array
 				cin >> ft;
 					if (ft==1)
 					{
