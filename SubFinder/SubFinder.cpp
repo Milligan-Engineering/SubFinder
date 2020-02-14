@@ -3,13 +3,13 @@
 // Email Address: Amperryman@my.milligan.edu
 // Assignment Number: PM05
 // Description: Program to conect teachers and substitues 
-// Last changed: 02/11/20
+// Last changed: 02/13/20
 
 #include <iostream>
 #include <string>
 using namespace std;
 
-int  date, room_number, number_students, age, x, periodNumber, number_of_students[8], final_check_teacher, final_check_sub, choiceTeacher, choiceSub;
+int  date, room_number, number_students, age, x, periodNumber, number_of_students[8], final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool;
 const int MAXPERIOD = 8;
 string  nameTeacher, month, subjectTeacher, school_location, emailTeacher, nameSub, subjectSub, emailSub;
 
@@ -29,7 +29,7 @@ int main()
 		cin >> month;
 		cout << "Enter day of the substition(i.e. 12)...";
 		cin >> date;
-		cout << "Enter the subject...";
+		cout << "Enter the subject\n";
 		cout << "Choose 1 to select MATH. \n"
 			<< "Choose 2 to select ENGLISH. \n"
 			<< "Choose 3 to select HISTORY. \n"
@@ -54,8 +54,31 @@ int main()
 			subjectTeacher = "other";
 			break;
 		}
-		cout << "Enter school location(i.e. ngs)...";
-		cin >> school_location;
+		cout << "Enter the school location\n";
+		cout << "Choose 1 to select NGS \n"
+			<< "Choose 2 to select CCHS \n"
+			<< "Choose 3 to select CHS \n"
+			<< "Choose 4 to selcet EMS \n"
+			<< "Choose 5 to selcet OTHER. \n";
+		cin >> choiceSchool;
+		switch (choiceSchool)
+		{
+		case 1:
+			school_location = "NGS";
+			break;
+		case 2:
+			school_location = "CCHS";
+			break;
+		case 3:
+			school_location = "CHS";
+			break;
+		case 4:
+			school_location = "EMS";
+			break;
+		case 5:
+			school_location = "other";
+			break;
+		}
 		cout << "Enter room number...";
 		cin >> room_number;
 		cout << "Enter how many class periods there will be...";
