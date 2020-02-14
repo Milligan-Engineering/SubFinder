@@ -9,7 +9,8 @@
 #include <string>
 using namespace std;
 
-int  date, room_number, number_students, age, x, periodNumber, number_of_students[8], final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool;
+int  date, room_number, number_students, age, x, periodNumber, number_of_students[8], 
+final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool,SubId;
 const int MAXPERIOD = 8;
 string  nameTeacher, month, subjectTeacher, school_location, emailTeacher, nameSub, subjectSub, emailSub;
 
@@ -112,6 +113,8 @@ int main()
 		cout << "note: when entering in your information please use no spaces and no capital letters\n";
 		cout << "Enter your name...";
 		cin >> nameSub;
+		cout << "Enter your sub id #";
+		cin >> SubId;
 		cout << "Enter your preferred subject...";
 		cout << "Choose 1 to select MATH. \n"
 			<< "Choose 2 to select ENGLISH. \n"
@@ -139,7 +142,7 @@ int main()
 		}
 		cout << "Enter email...";
 		cin >> emailSub;
-		cout << nameSub << endl << emailSub << endl << "Your perferred subject is " << subjectSub << endl;
+		cout << nameSub << endl << SubId << endl<< emailSub << endl << "Your perferred subject is " << subjectSub << endl;
 		cout << "Enter 1 if finished?";
 		cin >> final_check_sub;
 			if (final_check_sub == 1)
