@@ -18,6 +18,11 @@ int main()
 {
 	cout << "If you are a teacher please enter 1, if you are a substitute please enter 0...";
 	cin >> x;
+	while (x != 1 && x != 0)
+	{
+		cout << "This is not a valid imput, please enter 1 for teacher and 0 for sub...";
+		cin >> x;
+	}
 	if (x == 1)
 	{
 		cout << "welcome teacher\n";
@@ -107,7 +112,7 @@ int main()
 					return 0;
 				}
 	}
-	else
+	else if (x==0)
 	{
 		cout << "welcome substitute\n";
 		cout << "note: when entering in your information please use no spaces and no capital letters\n";
