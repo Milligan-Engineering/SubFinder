@@ -25,92 +25,90 @@ int main()
 	}
 	if (x == 1)
 	{
-		cout << "welcome teacher\n";
-		cout << "note: when entering in your information please use no spaces and no capital letters\n";
-		cout << "Enter your name(i.e. miss.conners)...";
-		cin >> nameTeacher;
-		cout << "Enter your email address...";
-		cin >> emailTeacher;
-		cout << "Enter month of substition(i.e. october)...";
-		cin >> month;
-		cout << "Enter day of the substition(i.e. 12)...";
-		cin >> date;
-		cout << "Enter the subject\n";
-		cout << "Choose 1 to select MATH. \n"
-			<< "Choose 2 to select ENGLISH. \n"
-			<< "Choose 3 to select HISTORY. \n"
-			<< "Choose 4 to selcet SCIENCE. \n"
-			<< "Choose 5 to selcet OTHER. \n";
-		cin >> choiceTeacher;
-		switch (choiceTeacher)
+		do
 		{
-		case 1:
-			subjectTeacher = "math";
-			break;
-		case 2:
-			subjectTeacher = "english";
-			break;
-		case 3:
-			subjectTeacher = "history";
-			break;
-		case 4:
-			subjectTeacher = "science";
-			break;
-		case 5:
-			subjectTeacher = "other";
-			break;
-		}
-		cout << "Enter the school location\n";
-		cout << "Choose 1 to select NGS \n"
-			<< "Choose 2 to select CCHS \n"
-			<< "Choose 3 to select CHS \n"
-			<< "Choose 4 to selcet EMS \n"
-			<< "Choose 5 to selcet OTHER. \n";
-		cin >> choiceSchool;
-		switch (choiceSchool)
-		{
-		case 1:
-			school_location = "NGS";
-			break;
-		case 2:
-			school_location = "CCHS";
-			break;
-		case 3:
-			school_location = "CHS";
-			break;
-		case 4:
-			school_location = "EMS";
-			break;
-		case 5:
-			school_location = "other";
-			break;
-		}
-		cout << "Enter room number...";
-		cin >> room_number;
-		cout << "Enter how many class periods there will be...";
-		cin >> periodNumber;
+			cout << "welcome teacher\n";
+			cout << "note: when entering in your information please use no spaces and no capital letters\n";
+			cout << "Enter your name(i.e. miss.conners)...";
+			cin >> nameTeacher;
+			cout << "Enter your email address...";
+			cin >> emailTeacher;
+			cout << "Enter month of substition(i.e. october)...";
+			cin >> month;
+			cout << "Enter day of the substition(i.e. 12)...";
+			cin >> date;
+			cout << "Enter the subject\n";
+			cout << "Choose 1 to select MATH. \n"
+				<< "Choose 2 to select ENGLISH. \n"
+				<< "Choose 3 to select HISTORY. \n"
+				<< "Choose 4 to selcet SCIENCE. \n"
+				<< "Choose 5 to selcet OTHER. \n";
+			cin >> choiceTeacher;
+			switch (choiceTeacher)
+			{
+			case 1:
+				subjectTeacher = "math";
+				break;
+			case 2:
+				subjectTeacher = "english";
+				break;
+			case 3:
+				subjectTeacher = "history";
+				break;
+			case 4:
+				subjectTeacher = "science";
+				break;
+			case 5:
+				subjectTeacher = "other";
+				break;
+			}
+			cout << "Enter the school location\n";
+			cout << "Choose 1 to select NGS \n"
+				<< "Choose 2 to select CCHS \n"
+				<< "Choose 3 to select CHS \n"
+				<< "Choose 4 to selcet EMS \n"
+				<< "Choose 5 to selcet OTHER. \n";
+			cin >> choiceSchool;
+			switch (choiceSchool)
+			{
+			case 1:
+				school_location = "NGS";
+				break;
+			case 2:
+				school_location = "CCHS";
+				break;
+			case 3:
+				school_location = "CHS";
+				break;
+			case 4:
+				school_location = "EMS";
+				break;
+			case 5:
+				school_location = "other";
+				break;
+			}
+			cout << "Enter room number...";
+			cin >> room_number;
+			cout << "Enter how many class periods there will be...";
+			cin >> periodNumber;
 			while (periodNumber > MAXPERIOD)
 			{
 				cout << "this is a invalid period number, please enter the amount of class periods you have in a day...";
 				cin >> periodNumber;
 			}
 			int totalStudents = 0;
-				for (int i = 0; i < periodNumber; i++)
-				{
-					cout << "Enter the number of sudents in each period..." << i << endl; 
-					cin >> number_of_students[i];
-					totalStudents += number_of_students[i];
-				}
-				cout << nameTeacher << endl << emailTeacher << endl << "The subsitution will take place on " << month << " " << date << endl;
-				cout << "The subsitution will take place at " << school_location << " in room " << room_number << endl;
-				cout << "the total number of students you have throughout the day is " << totalStudents << endl;
-				cout << "Enter 1 if finished?";
-				cin >> final_check_teacher;
-				if (final_check_teacher == 1)
-				{
-					cout << "thank you for using SubFinder, we will be sending you a email once your job has been taken\nhave a nice day :)";
-					return 0;
-				}
+			for (int i = 0; i < periodNumber; i++)
+			{
+				cout << "Enter the number of sudents in each period..." << i << endl;
+				cin >> number_of_students[i];
+				totalStudents += number_of_students[i];
+			}
+			cout << nameTeacher << endl << emailTeacher << endl << "The subsitution will take place on " << month << " " << date << endl;
+			cout << "The subsitution will take place at " << school_location << " in room " << room_number << endl;
+			cout << "the total number of students you have throughout the day is " << totalStudents << endl;
+			cout << "Enter 1 if finished?";
+			cin >> final_check_teacher;
+		} while (final_check_teacher != 1);
 	}
 	else if (x==0)
 	{
