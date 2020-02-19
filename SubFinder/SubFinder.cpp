@@ -1,16 +1,19 @@
 // File Name: SubFinder.cpp
 // Author: Alayna Perryman
 // Email Address: Amperryman@my.milligan.edu
-// Assignment Number: PM05
+// Assignment Number: PM06
 // Description: Program to conect teachers and substitues 
-// Last changed: 02/13/20
+// Last changed: 02/17/20
 
 #include <iostream>
 #include <string>
+#include <cmath>
 using namespace std;
 
 int  date, room_number, number_students, age, x, periodNumber, number_of_students[8], 
-final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool,SubId;
+final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool,SubId, choiceMonth, choiceDay;
+double dayType;
+double timePeriod(double dayType, int periodNumber);
 const int MAXPERIOD = 8;
 string  nameTeacher, month, subjectTeacher, school_location, emailTeacher, nameSub, subjectSub, emailSub;
 
@@ -33,11 +36,62 @@ int main()
 			cin >> nameTeacher;
 			cout << "Enter your email address...";
 			cin >> emailTeacher;
-			cout << "Enter month of substition(i.e. october)...";
-			cin >> month;
+			cout << "Select month of substition\n";
+			cout << "Choose 1 for JANUARY.\n"
+				<< "Choose 2 for FEBRUARY.\n"
+				<< "Choose 3 for MARCH.\n"
+				<< "Choose 4 for APRIL.\n"
+				<< "Choose 5 for MAY.\n"
+				<< "Choose 6 for JUNE.\n"
+				<< "Choose 7 for JULY.\n"
+				<< "Choose 8 for AUGUST.\n"
+				<< "Choose 9 for SEPTEMBER.\n"
+				<< "Choose 10 for OCTOBER.\n"
+				<< "Choose 11 for NOVEMBER.\n"
+				<< "Choose 12 for DECEMBER.\n";
+			cin >> choiceMonth;
+			switch (choiceMonth)
+			{
+			case 1:
+				month = "January";
+				break;
+			case 2:
+				month = "February";
+				break;
+			case 3:
+				month = "March";
+				break;
+			case 4:
+				month = "April";
+				break;
+			case 5:
+				month = "May";
+				break;
+			case 6:
+				month = "June";
+				break;
+			case 7:
+				month = "July";
+				break;
+			case 8:
+				month = "August";
+				break;
+			case 9:
+				month = "September";
+				break;
+			case 10:
+				month = "October";
+				break;
+			case 11:
+				month = "November";
+				break;
+			case 12:
+				month = "December";
+				break;
+			}
 			cout << "Enter day of the substition(i.e. 12)...";
 			cin >> date;
-			cout << "Enter the subject\n";
+			cout << "Select the subject\n";
 			cout << "Choose 1 to select MATH. \n"
 				<< "Choose 2 to select ENGLISH. \n"
 				<< "Choose 3 to select HISTORY. \n"
@@ -62,7 +116,7 @@ int main()
 				subjectTeacher = "other";
 				break;
 			}
-			cout << "Enter the school location\n";
+			cout << "Select the school location\n";
 			cout << "Choose 1 to select NGS \n"
 				<< "Choose 2 to select CCHS \n"
 				<< "Choose 3 to select CHS \n"
@@ -89,13 +143,28 @@ int main()
 			}
 			cout << "Enter room number...";
 			cin >> room_number;
+			cout << "Select the type of day\n";
+			cout << "Enter 1 if it will be a FULL DAY\n"
+				<< "Enter 2 if it will be a HALF DAY\n";
+			cin >> choiceDay;
+			switch (choiceDay)
+			{
+			case 1:
+				dayType = 7.0;
+				break;
+			case 2:
+				dayType = 3.5;
+				break;
+			}
 			cout << "Enter how many class periods there will be...";
 			cin >> periodNumber;
+			
 			while (periodNumber > MAXPERIOD)
 			{
 				cout << "this is a invalid period number, please enter the amount of class periods you have in a day...";
 				cin >> periodNumber;
 			}
+			cout << "Each period will be " << timePeriod(dayType, periodNumber) << " hours long.\n";
 			int totalStudents = 0;
 			for (int i = 0; i < periodNumber; i++)
 			{
@@ -154,4 +223,9 @@ int main()
 				return 0;
 			}
 	}
+}
+double timePeriod (double dayType, int periodNumber)
+{
+	double periodtime = (dayType / periodNumber);
+	return (periodtime);
 }
