@@ -3,7 +3,7 @@
 // Email Address: Amperryman@my.milligan.edu
 // Assignment Number: PM06
 // Description: Program to conect teachers and substitues 
-// Last changed: 02/17/20
+// Last changed: 02/20/20
 
 #include <iostream>
 #include <string>
@@ -164,7 +164,7 @@ int main()
 				cout << "this is a invalid period number, please enter the amount of class periods you have in a day...";
 				cin >> periodNumber;
 			}
-			cout << "Each period will be " << timePeriod(dayType, periodNumber) << " hours long.\n";
+			cout << "Each period will be " << ceil (timePeriod(dayType, periodNumber)) << " hours long.\n";
 			int totalStudents = 0;
 			for (int i = 0; i < periodNumber; i++)
 			{
