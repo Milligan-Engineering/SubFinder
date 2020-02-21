@@ -150,10 +150,10 @@ int main()
 			switch (choiceDay)
 			{
 			case 1:
-				dayType = 7.0;
+				dayType = 420.0;
 				break;
 			case 2:
-				dayType = 3.5;
+				dayType = 210.0;
 				break;
 			}
 			cout << "Enter how many class periods there will be...";
@@ -164,7 +164,7 @@ int main()
 				cout << "this is a invalid period number, please enter the amount of class periods you have in a day...";
 				cin >> periodNumber;
 			}
-			cout << "Each period will be " << ceil (timePeriod(dayType, periodNumber)) << " hours long.\n";
+			cout << "Each period will be " << ceil (timePeriod(dayType, periodNumber)) << " mins long.\n";
 			int totalStudents = 0;
 			for (int i = 0; i < periodNumber; i++)
 			{
