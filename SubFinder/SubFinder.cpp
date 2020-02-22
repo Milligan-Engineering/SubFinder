@@ -193,55 +193,53 @@ int main()
 			cin >> final_check_teacher;
 		} while (final_check_teacher != 1);
 	}
-	else if (x==0)
+	else if (x == 0)
 	{
-		cout << "welcome substitute\n";
-		cout << "note: when entering in your information please use no spaces and no capital letters\n";
-		cout << "Enter your name...";
-		cin >> nameSub;
-		cout << "Enter your sub id #";
-		cin >> SubId;
 		do
 		{
-			cout << "Enter your preferred subject...";
-			cout << "Choose 1 to select MATH. \n"
-				<< "Choose 2 to select ENGLISH. \n"
-				<< "Choose 3 to select HISTORY. \n"
-				<< "Choose 4 to selcet SCIENCE. \n"
-				<< "Choose 5 to selcet OTHER. \n";
-			cin >> choiceSub;
-			switch (choiceSub)
+			cout << "welcome substitute\n";
+			cout << "note: when entering in your information please use no spaces and no capital letters\n";
+			cout << "Enter your name...";
+			cin >> nameSub;
+			cout << "Enter your sub id #";
+			cin >> SubId;
+			do
 			{
-			case 1:
-				subjectSub = "math";
-				break;
-			case 2:
-				subjectSub = "english";
-				break;
-			case 3:
-				subjectSub = "history";
-				break;
-			case 4:
-				subjectSub = "science";
-				break;
-			case 5:
-				subjectSub = "other";
-				break;
-			}
-		} while (choiceSub > 5);
-		cout << "Enter email...";
-		cin >> emailSub;
-		cout << nameSub << endl << SubId << endl<< emailSub << endl << "Your perferred subject is " << subjectSub << endl;
-		cout << "Enter 1 if finished?";
-		cin >> final_check_sub;
-			if (final_check_sub == 1)
-			{
-				cout << "thank you for using subfinder, here is a list of available job opportunities\nhave a nice day :)";
-				return 0;
-			}
+				cout << "Enter your preferred subject\n";
+				cout << "Choose 1 to select MATH. \n"
+					<< "Choose 2 to select ENGLISH. \n"
+					<< "Choose 3 to select HISTORY. \n"
+					<< "Choose 4 to selcet SCIENCE. \n"
+					<< "Choose 5 to selcet OTHER. \n";
+				cin >> choiceSub;
+				switch (choiceSub)
+				{
+				case 1:
+					subjectSub = "math";
+					break;
+				case 2:
+					subjectSub = "english";
+					break;
+				case 3:
+					subjectSub = "history";
+					break;
+				case 4:
+					subjectSub = "science";
+					break;
+				case 5:
+					subjectSub = "other";
+					break;
+				}
+			} while (choiceSub > 5);
+			cout << "Enter email...";
+			cin >> emailSub;
+			cout << nameSub << endl << SubId << endl << emailSub << endl << "Your perferred subject is " << subjectSub << endl;
+			cout << "Enter 1 if finished?";
+			cin >> final_check_sub;
+		} while (final_check_sub != 1);
 	}
 }
-double timePeriod (double dayType, int periodNumber)
+double timePeriod(double dayType, int periodNumber)
 {
 	double periodtime = (dayType / periodNumber);
 	return (periodtime);
