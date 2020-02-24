@@ -14,7 +14,7 @@ int  date, room_number, number_students, age, x, periodNumber, number_of_student
 final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool,SubId, choiceMonth, choiceDay;
 double dayType;
 double timePeriod(double dayType, int periodNumber);
-// Precondition: User will select how many minutes long the school day will be, then they will imput how many class periods they will have
+// Precondition: enter the minutes during day and divide by the number of periods
 //Postconditon: returns the mins per period
 const int MAXPERIOD = 8;
 string  nameTeacher, month, subjectTeacher, school_location, emailTeacher, nameSub, subjectSub, emailSub;
