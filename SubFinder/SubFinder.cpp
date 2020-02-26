@@ -1,9 +1,9 @@
 // File Name: SubFinder.cpp
 // Author: Alayna Perryman
 // Email Address: Amperryman@my.milligan.edu
-// Assignment Number: PM06
+// Assignment Number: PM07
 // Description: Program to conect teachers and substitues 
-// Last changed: 02/21/20
+// Last changed: 02/26/20
 
 #include <iostream>
 #include <string>
@@ -16,6 +16,7 @@ double dayType;
 double timePeriod(double dayType, int periodNumber);
 // Precondition: enter the minutes during day and divide by the number of periods
 //Postconditon: returns the mins per period
+int listPrint(int data1, int data2, int data3);
 const int MAXPERIOD = 8;
 string  nameTeacher, month, subjectTeacher, school_location, emailTeacher, nameSub, subjectSub, emailSub;
 
@@ -186,6 +187,14 @@ int main()
 				cin >> number_of_students[i];
 				totalStudents += number_of_students[i];
 			}
+			cout << "Enter how many days you need a subsitute for...";
+			int daysMissed;
+			cin >> daysMissed;
+			cout << "Enter how much you get paid for a week";
+			int payTeacher;
+			cin >> payTeacher;
+			cout << "Enter 1 if this subsitution is covered with paid leave... "
+
 			cout << nameTeacher << endl << emailTeacher << endl << "The subsitution will take place on " << month << " " << date << endl;
 			cout << "The subsitution will take place at " << school_location << " in room " << room_number << endl;
 			cout << "the total number of students you have throughout the day is " << totalStudents << endl;
