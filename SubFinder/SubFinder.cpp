@@ -10,15 +10,17 @@
 #include <cmath>
 using namespace std;
 
-int  date, room_number, number_students, age, x, periodNumber, number_of_students[8], 
-final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool,SubId, choiceMonth, choiceDay;
+int  date, room_number, number_students, age, x, periodNumber, number_of_students[8],
+final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool, SubId,
+choiceMonth, choiceDay, Arrayi[10];
 double dayType;
 double timePeriod(double dayType, int periodNumber);
 // Precondition: enter the minutes during day and divide by the number of periods
 //Postconditon: returns the mins per period
-int listPrint(int data1, int data2, int data3);
+void listPrint(int numberi, int Arrayi[]);
+void listPrint(double Arrayj [], double numberj );
 const int MAXPERIOD = 8;
-string  nameTeacher, month, subjectTeacher, school_location, emailTeacher, nameSub, subjectSub, emailSub;
+string  nameTeacher, month, subjectTeacher, school_location, emailTeacher, nameSub, subjectSub, emailSub, Arrayj [10];
 
 int main()
 {
@@ -187,14 +189,29 @@ int main()
 				cin >> number_of_students[i];
 				totalStudents += number_of_students[i];
 			}
+			cout << number_of_students[2];
 			cout << "Enter how many days you need a subsitute for...";
-			int daysMissed;
-			cin >> daysMissed;
-			cout << "Enter how much you get paid for a week";
-			int payTeacher;
-			cin >> payTeacher;
-			cout << "Enter 1 if this subsitution is covered with paid leave... "
-
+			int numberi;
+			cin >> numberi;
+			for (int i = 0; i < numberi; i++)
+			{
+				cin >> Arrayi[i];
+			}
+			/*cout << "Enter the dates of the day or days your going to miss...";
+			for (int i = 0; i < numberi; i++)
+			{
+				cin >> Arrayi [i];
+			}*/
+			listPrint(numberi, Arrayi);
+			cout << "Enter how many periods there will be...";
+			int numberj;
+			cin >> numberj;
+			for (int j = 0; j < numberj; j++)
+			{
+				cout << "Enter the student leader for period " << j+1<<"...";
+				cin >> Arrayj [j];
+			}
+			listPrint(numberj, Arrayj);
 			cout << nameTeacher << endl << emailTeacher << endl << "The subsitution will take place on " << month << " " << date << endl;
 			cout << "The subsitution will take place at " << school_location << " in room " << room_number << endl;
 			cout << "the total number of students you have throughout the day is " << totalStudents << endl;
@@ -248,8 +265,23 @@ int main()
 		} while (final_check_sub != 1);
 	}
 }
+//function declaration 
 double timePeriod(double dayType, int periodNumber)
 {
 	double periodtime = (dayType / periodNumber);
 	return (periodtime);
+}
+void listPrint(int numberi, int Arrayi [])
+{
+	for (int i = 0; i < numberi; i++)
+	{
+		cout << "The " << i + 1 << "day you will miss is the " << Arrayi[i]<< endl;
+	}
+}
+void listPrint(int numberj, string Arrayj[])
+{
+	for (int i = 0; i < numberj; i++)
+	{
+		cout << "the student leader of period " << i + 1 << " is " << Arrayj[i] << endl;
+	}
 }
