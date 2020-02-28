@@ -12,13 +12,18 @@ using namespace std;
 
 int  date, room_number, number_students, age, x, periodNumber, number_of_students[8],
 final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool, SubId,
-choiceMonth, choiceDay, Arrayi[10];
+choiceMonth, choiceDay, Arrayi[5], numberi;
 double dayType;
 double timePeriod(double dayType, int periodNumber);
 // Precondition: enter the minutes during day and divide by the number of periods
 //Postconditon: returns the mins per period
 void listPrint(int numberi, int Arrayi[]);
-void listPrint(double Arrayj [], double numberj );
+// Precondition: user enters the amout of days missed, and the dates
+// Postcondition: outputs a list with the dates that user is missing 
+void listPrint(double numberj, string Arrayj []);
+// Precondition: user enters how many periods they will have in a day and the student leaders for each period 
+//Postcondition: outputs for which class period who is the leader
+
 const int MAXPERIOD = 8;
 string  nameTeacher, month, subjectTeacher, school_location, emailTeacher, nameSub, subjectSub, emailSub, Arrayj [10];
 
@@ -97,8 +102,8 @@ int main()
 					break;
 				}
 			} while (choiceMonth > 12);
-			cout << "Enter day of the substition(i.e. 12)...";
-			cin >> date;
+			/*cout << "Enter day of the substition(i.e. 12)...";
+			cin >> date;*/
 			do
 			{
 				cout << "Select the subject\n";
@@ -189,22 +194,16 @@ int main()
 				cin >> number_of_students[i];
 				totalStudents += number_of_students[i];
 			}
-			cout << number_of_students[2];
 			cout << "Enter how many days you need a subsitute for...";
-			int numberi;
 			cin >> numberi;
-			for (int i = 0; i < numberi; i++)
-			{
-				cin >> Arrayi[i];
-			}
-			/*cout << "Enter the dates of the day or days your going to miss...";
+			cout << "Enter the dates of the day or days your going to miss\n...";
 			for (int i = 0; i < numberi; i++)
 			{
 				cin >> Arrayi [i];
-			}*/
-			listPrint(numberi, Arrayi);
+			}
+			listPrint(numberi, Arrayi); 
 			cout << "Enter how many periods there will be...";
-			int numberj;
+			double numberj;
 			cin >> numberj;
 			for (int j = 0; j < numberj; j++)
 			{
@@ -278,7 +277,7 @@ void listPrint(int numberi, int Arrayi [])
 		cout << "The " << i + 1 << "day you will miss is the " << Arrayi[i]<< endl;
 	}
 }
-void listPrint(int numberj, string Arrayj[])
+void listPrint(double numberj, string Arrayj[])
 {
 	for (int i = 0; i < numberj; i++)
 	{
