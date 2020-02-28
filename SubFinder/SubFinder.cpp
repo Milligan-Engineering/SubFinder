@@ -12,7 +12,7 @@ using namespace std;
 
 int  date, room_number, number_students, age, x, periodNumber, number_of_students[8],
 final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool, SubId,
-choiceMonth, choiceDay, Arrayi[5], numberi;
+choiceMonth, choiceDay,Arrayi [31], numberi;
 double dayType;
 double timePeriod(double dayType, int periodNumber);
 // Precondition: enter the minutes during day and divide by the number of periods
@@ -196,7 +196,7 @@ int main()
 			}
 			cout << "Enter how many days you need a subsitute for...";
 			cin >> numberi;
-			cout << "Enter the dates of the day or days your going to miss\n...";
+			cout << "Enter the dates of the day or days your going to miss...\n";
 			for (int i = 0; i < numberi; i++)
 			{
 				cin >> Arrayi [i];
@@ -272,9 +272,10 @@ double timePeriod(double dayType, int periodNumber)
 }
 void listPrint(int numberi, int Arrayi [])
 {
+	string Ordinal[31] = { "st","nd","rd","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","st","nd","rd","th","th","th","th","th","th","th","st" };
 	for (int i = 0; i < numberi; i++)
 	{
-		cout << "The " << i + 1 << "day you will miss is the " << Arrayi[i]<< endl;
+		cout << "The " << i + 1 << Ordinal[i] << " day you will miss is the " << Arrayi[i] << Ordinal[Arrayi[i]-1] << endl;
 	}
 }
 void listPrint(double numberj, string Arrayj[])
