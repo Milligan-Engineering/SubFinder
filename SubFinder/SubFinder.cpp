@@ -8,24 +8,31 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <fstream>
+#include <cstdlib>
+
 using namespace std;
+
+//file imput and output
+ifstream instream;
+ofstream outstream;
 
 int  date, room_number, number_students, age, x, periodNumber, number_of_students[8],
 final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool, SubId,
 choiceMonth, choiceDay,Arrayi [31], numberi;
-double dayType;
+double dayType, numberj;
 double timePeriod(double dayType, int periodNumber);
 // Precondition: enter the minutes during day and divide by the number of periods
 //Postconditon: returns the mins per period
 void listPrint(int numberi, int Arrayi[]);
-// Precondition: user enters the amout of days missed, and the dates
+// Precondition: user enters the lenth of the array and then uses the array to enters the dates that they will be missing
 // Postcondition: outputs a list with the dates that user is missing 
 void listPrint(double numberj, string Arrayj []);
-// Precondition: user enters how many periods they will have in a day and the student leaders for each period 
+// Precondition: user enters the length of the array and then uses the array to enters the name of the student leader for each period
 //Postcondition: outputs for which class period who is the leader
 
 const int MAXPERIOD = 8;
-string  nameTeacher, month, subjectTeacher, school_location, emailTeacher, nameSub, subjectSub, emailSub, Arrayj [10];
+string  nameTeacher, month, subjectTeacher, school_location, emailTeacher, nameSub, subjectSub, emailSub, Arrayj[10], DATE_Ordinal, Ordinal[31];
 
 int main()
 {
@@ -41,11 +48,15 @@ int main()
 		do
 		{
 			cout << "welcome teacher\n";
+
 			cout << "note: when entering in your information please use no spaces and no capital letters\n";
+
 			cout << "Enter your name(i.e. miss.conners)...";
 			cin >> nameTeacher;
+
 			cout << "Enter your email address...";
 			cin >> emailTeacher;
+
 			do
 			{
 				cout << "Select month of substition\n";
@@ -102,8 +113,18 @@ int main()
 					break;
 				}
 			} while (choiceMonth > 12);
-			/*cout << "Enter day of the substition(i.e. 12)...";
-			cin >> date;*/
+
+			do
+			{
+				cout << "Enter day of the substition(i.e. 12)...";
+				cin >> date;
+			} while (date >= 31);
+
+			// Working with Ordinal's 
+
+			Ordinal[31] = ( "st","nd","rd","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","st","nd","rd","th","th","th","th","th","th","th","st" );
+			DATE_Ordinal = Ordinal[date - 1];
+
 			do
 			{
 				cout << "Select the subject\n";
@@ -132,6 +153,8 @@ int main()
 					break;
 				}
 			} while (choiceTeacher > 5);
+
+
 			do
 			{
 				cout << "Select the school location\n";
@@ -160,8 +183,12 @@ int main()
 					break;
 				}
 			} while (choiceSchool > 5);
+
+
 			cout << "Enter room number...";
 			cin >> room_number;
+
+
 			do
 			{
 				cout << "Select the type of day\n";
@@ -180,12 +207,17 @@ int main()
 			} while (choiceDay > 2);
 			cout << "Enter how many class periods there will be...";
 			cin >> periodNumber;
+
+			// max period check
 			
 			while (periodNumber > MAXPERIOD)
 			{
 				cout << "this is a invalid period number, please enter the amount of class periods you have in a day...";
 				cin >> periodNumber;
 			}
+
+			//working with Arrays, userdefined functions, and predefined functions
+
 			cout << "Each period will be " << ceil (timePeriod(dayType, periodNumber)) << " mins long.\n";
 			int totalStudents = 0;
 			for (int i = 0; i < periodNumber; i++)
@@ -201,6 +233,9 @@ int main()
 			{
 				cin >> Arrayi [i];
 			}
+
+			// WORKING WITH VOID ARRAYS
+
 			listPrint(numberi, Arrayi); 
 			cout << "Enter how many periods there will be...";
 			double numberj;
@@ -216,7 +251,20 @@ int main()
 			cout << "the total number of students you have throughout the day is " << totalStudents << endl;
 			cout << "Enter 1 if finished?";
 			cin >> final_check_teacher;
+
 		} while (final_check_teacher != 1);
+
+		// using the file imput and output function 
+		{
+			outstream.open("Teacher_Request.txt");
+			if (outstream.fail())
+			{
+				cout << "the output file opening failed.\n";
+				exit;
+			}
+			outstream << "NAME: " << nameTeacher << " DATE: " << month << " " << date << DATE_Ordinal <<  " LOCATION: " << school_location << " TEACHER EMAIL: " << emailTeacher;
+			outstream.close();
+		}
 	}
 	else if (x == 0)
 	{
@@ -264,6 +312,9 @@ int main()
 		} while (final_check_sub != 1);
 	}
 }
+
+
+
 //function declaration 
 double timePeriod(double dayType, int periodNumber)
 {
