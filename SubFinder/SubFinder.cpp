@@ -20,19 +20,29 @@ ofstream outstream;
 int  date, room_number, number_students, age, x, periodNumber, number_of_students[8],
 final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool, SubId,
 choiceMonth, choiceDay,Arrayi [31], numberi;
+
 double dayType, numberj;
+
 double timePeriod(double dayType, int periodNumber);
 // Precondition: enter the minutes during day and divide by the number of periods
 //Postconditon: returns the mins per period
+
 void listPrint(int numberi, int Arrayi[]);
-// Precondition: user enters the lenth of the array and then uses the array to enters the dates that they will be missing
+// Precondition: user enters the lenth of the array and then uses the array to 
+//enters the dates that they will be missing
 // Postcondition: outputs a list with the dates that user is missing 
+
 void listPrint(double numberj, string Arrayj []);
-// Precondition: user enters the length of the array and then uses the array to enters the name of the student leader for each period
+// Precondition: user enters the length of the array and then uses the 
+//array to enters the name of the student leader for each period
 //Postcondition: outputs for which class period who is the leader
 
 const int MAXPERIOD = 8;
-string  nameTeacher, month, subjectTeacher, school_location, emailTeacher, nameSub, subjectSub, emailSub, Arrayj[10], DATE_Ordinal, Ordinal[31];
+
+string  nameTeacher, month, subjectTeacher, school_location,
+emailTeacher, nameSub, subjectSub, emailSub, Arrayj[10], Ordinal [32];
+
+
 
 int main()
 {
@@ -122,8 +132,12 @@ int main()
 
 			// Working with Ordinal's 
 
-			Ordinal[31] = ( "st","nd","rd","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","st","nd","rd","th","th","th","th","th","th","th","st" );
-			DATE_Ordinal = Ordinal[date - 1];
+
+			/*Ordinal[32] = ( "st","nd","rd","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","st","nd","rd","th","th","th","th","th","th","th","st" );
+			
+
+			cout << date << Ordinal[date - 1] << endl;*/
+		
 
 			do
 			{
@@ -189,7 +203,7 @@ int main()
 			cin >> room_number;
 
 
-			do
+			/*do
 			{
 				cout << "Select the type of day\n";
 				cout << "Enter 1 if it will be a FULL DAY\n"
@@ -218,7 +232,7 @@ int main()
 
 			//working with Arrays, userdefined functions, and predefined functions
 
-			cout << "Each period will be " << ceil (timePeriod(dayType, periodNumber)) << " mins long.\n";
+			/*cout << "Each period will be " << ceil (timePeriod(dayType, periodNumber)) << " mins long.\n";
 			int totalStudents = 0;
 			for (int i = 0; i < periodNumber; i++)
 			{
@@ -236,7 +250,7 @@ int main()
 
 			// WORKING WITH VOID ARRAYS
 
-			listPrint(numberi, Arrayi); 
+			/*listPrint(numberi, Arrayi); 
 			cout << "Enter how many periods there will be...";
 			double numberj;
 			cin >> numberj;
@@ -246,9 +260,9 @@ int main()
 				cin >> Arrayj [j];
 			}
 			listPrint(numberj, Arrayj);
-			cout << nameTeacher << endl << emailTeacher << endl << "The subsitution will take place on " << month << " " << date << endl;
+			/*cout << nameTeacher << endl << emailTeacher << endl << "The subsitution will take place on " << month << " " << date << endl;
 			cout << "The subsitution will take place at " << school_location << " in room " << room_number << endl;
-			cout << "the total number of students you have throughout the day is " << totalStudents << endl;
+			cout << "the total number of students you have throughout the day is " << totalStudents << endl;*/
 			cout << "Enter 1 if finished?";
 			cin >> final_check_teacher;
 
@@ -256,13 +270,14 @@ int main()
 
 		// using the file imput and output function 
 		{
-			outstream.open("Teacher_Request.txt");
+			ofstream outstream;
+			outstream.open("Teacher_Request.dat");
 			if (outstream.fail())
 			{
 				cout << "the output file opening failed.\n";
-				exit;
+				exit(1);
 			}
-			outstream << "NAME: " << nameTeacher << " DATE: " << month << " " << date << DATE_Ordinal <<  " LOCATION: " << school_location << " TEACHER EMAIL: " << emailTeacher;
+			outstream << nameTeacher<<endl << month<<endl << date<<endl << school_location <<endl<<room_number <<endl<< subjectTeacher<<endl  << emailTeacher;
 			outstream.close();
 		}
 	}
@@ -272,10 +287,13 @@ int main()
 		{
 			cout << "welcome substitute\n";
 			cout << "note: when entering in your information please use no spaces and no capital letters\n";
+			
 			cout << "Enter your name...";
 			cin >> nameSub;
+			
 			cout << "Enter your sub id #";
 			cin >> SubId;
+			
 			do
 			{
 				cout << "Enter your preferred subject\n";
@@ -304,12 +322,25 @@ int main()
 					break;
 				}
 			} while (choiceSub > 5);
+
 			cout << "Enter email...";
 			cin >> emailSub;
+
 			cout << nameSub << endl << SubId << endl << emailSub << endl << "Your perferred subject is " << subjectSub << endl;
 			cout << "Enter 1 if finished?";
 			cin >> final_check_sub;
 		} while (final_check_sub != 1);
+
+		ifstream instream;
+		instream.open("Teacher_Request.dat");
+		if (instream.fail())
+		{
+			cout << "the imput file opening failed.\n";
+			exit(1);
+		}
+		instream >> nameTeacher >> month >>  date >> school_location >> room_number >> subjectTeacher >> emailTeacher;
+		cout << "NAME: " << nameTeacher << " DATE: " << month << " " << date << " LOCATION: " << school_location << " in room " << room_number << " SUBJECT: " << subjectTeacher << " TEACHER EMAIL: " << emailTeacher;
+		instream.close();
 	}
 }
 
