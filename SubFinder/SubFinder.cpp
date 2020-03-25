@@ -1,15 +1,15 @@
 // File Name: SubFinder.cpp
 // Author: Alayna Perryman
 // Email Address: Amperryman@my.milligan.edu
-// Assignment Number: PM07
+// Assignment Number: PM09a
 // Description: Program to conect teachers and substitues 
-// Last changed: 02/26/20
+// Last changed: 03/25/20
 
 #include <iostream>
 #include <string>
 #include <cmath>
 #include <fstream>
-#include <cstdlib>
+//# <cstdlib>
 
 using namespace std;
 
@@ -130,13 +130,16 @@ int main()
 				cin >> date;
 			} while (date >= 31);
 
-			// Working with Ordinal's 
+			// Working with Ordinal's (This is currently not working)
 
 
-			/*Ordinal[32] = ( "st","nd","rd","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","st","nd","rd","th","th","th","th","th","th","th","st" );
+			/*Ordinal[32] = ( "st","nd","rd","th","th","th","th","th","th",
+				"th","th","th","th","th","th","th","th","th","th",
+				"th","st","nd","rd","th","th","th","th","th","th",
+				"th","st" );
 			
 
-			cout << date << Ordinal[date - 1] << endl;*/
+			cout << date << Ordinal[(date - 1)] << endl;*/
 		
 
 			do
