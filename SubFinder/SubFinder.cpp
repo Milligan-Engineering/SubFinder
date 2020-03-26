@@ -304,7 +304,8 @@ int main()
 			}
 		}*/
 
-	
+		//Imputing the c-string 
+
 		strcpy_s(ProgrammerEmail, "Amims123@hotmail.com");
 		ofstream outstream;
 		outstream.open("Teacher_Email.dat");
@@ -313,10 +314,10 @@ int main()
 			cout << "the output file opening failed.\n";
 			exit(1);
 		}
-	// Will only output the index 21 character of ProgrammerEmail - which isn't used
-	//Going to want use a while statement to write one character at a time with a put 
-	// and quit after you write the null. Give this a shot and let me know what trouble you have.
-		outstream << ProgrammerEmail[21];
+		for (int i = 0; i < 21; i++)
+		{
+			outstream.put(ProgrammerEmail[i]);
+		}
 		outstream.close();
 
 
@@ -383,6 +384,7 @@ int main()
 		instream.close();*/
 
 
+		// Outputting the c-string 
 
 		ifstream instream;
 		instream.open("Teacher_Email.dat");
@@ -391,27 +393,13 @@ int main()
 			cout << "the imput file opening failed.\n";
 			exit(1);
 		}
-		instream >> ProgrammerEmail[21];
-		cout << ProgrammerEmail;
+		for (int i = 0; i < 21; i++)
+		{
+			instream.get(ProgrammerEmail[i]);
+			cout << ProgrammerEmail[i];
+		}
 		instream.close();
 		
-
-		// Working on Character I/O
-
-		//FAiled attempt working with PM09a
-		/*cout << "Was all that imformation correct?";
-		char streamCheck;
-		cin.get(streamCheck);
-		while ((streamCheck = 'Y') || (streamCheck = 'y'));
-		{
-			cout <<"Awesome";
-			return 0;
-		}
-		while ((streamCheck = 'N') || (streamCheck = 'n'));
-		{
-			cout << "oh no";
-			return 0;
-		}*/
 	}
 }
 
