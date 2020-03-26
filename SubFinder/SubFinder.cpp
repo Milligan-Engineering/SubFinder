@@ -17,6 +17,9 @@ using namespace std;
 ifstream instream;
 ofstream outstream;
 
+void newline();
+//this disregared all the other imputs after the first letter of the imput
+
 int  date, room_number, number_students, age, x, periodNumber, number_of_students[8],
 final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool, SubId,
 choiceMonth, choiceDay,Arrayi [31], numberi;
@@ -283,6 +286,34 @@ int main()
 			outstream << nameTeacher<<endl << month<<endl << date<<endl << school_location <<endl<<room_number <<endl<< subjectTeacher<<endl  << emailTeacher;
 			outstream.close();
 		}
+
+		//Working with Character I/O (output to file)
+		cout << "Enter how many characters long your email is...";
+		int EmailLength;
+		cin >> EmailLength;
+		cout << "enter your email, when done entering email finish with a coma";
+		char cArray[100];
+		char TeacherEmail;
+		for (int i = 0; i <= (EmailLength-1); i++)
+		{
+			while (TeacherEmail != ',')
+			{
+				cArray[i] = TeacherEmail;
+			}
+		}
+		
+		
+			ofstream outstream;
+			outstream.open("Teacher_Email.txt");
+			if (outstream.fail())
+			{
+				cout << "the output file opening failed.\n";
+				exit(1);
+			}
+			outstream << cArray[100];
+			outstream.close();
+
+
 	}
 	else if (x == 0)
 	{
@@ -344,6 +375,27 @@ int main()
 		instream >> nameTeacher >> month >>  date >> school_location >> room_number >> subjectTeacher >> emailTeacher;
 		cout << "NAME: " << nameTeacher << " DATE: " << month << " " << date << " LOCATION: " << school_location << " in room " << room_number << " SUBJECT: " << subjectTeacher << " TEACHER EMAIL: " << emailTeacher;
 		instream.close();
+
+		//
+
+
+		
+
+		// Working on Character I/O
+
+		cout << "Was all that imformation correct?";
+		char streamCheck;
+		cin.get(streamCheck);
+		while ((streamCheck = 'Y') || (streamCheck = 'y'));
+		{
+			cout <<"Awesome";
+			return 0;
+		}
+		while ((streamCheck = 'N') || (streamCheck = 'n'));
+		{
+			cout << "oh no";
+			return 0;
+		}
 	}
 }
 
