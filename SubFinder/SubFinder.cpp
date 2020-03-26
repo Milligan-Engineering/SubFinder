@@ -305,7 +305,7 @@ int main()
 		}*/
 
 	
-		strcpy(ProgrammerEmail, "Amims123@hotmail.com");
+		strcpy_s(ProgrammerEmail, "Amims123@hotmail.com");
 		ofstream outstream;
 		outstream.open("Teacher_Email.dat");
 		if (outstream.fail())
@@ -313,6 +313,9 @@ int main()
 			cout << "the output file opening failed.\n";
 			exit(1);
 		}
+	// Will only output the index 21 character of ProgrammerEmail - which isn't used
+	//Going to want use a while statement to write one character at a time with a put 
+	// and quit after you write the null. Give this a shot and let me know what trouble you have.
 		outstream << ProgrammerEmail[21];
 		outstream.close();
 
