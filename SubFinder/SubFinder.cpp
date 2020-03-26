@@ -17,8 +17,6 @@ using namespace std;
 ifstream instream;
 ofstream outstream;
 
-void newline();
-//this disregared all the other imputs after the first letter of the imput
 
 int  date, room_number, number_students, age, x, periodNumber, number_of_students[8],
 final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool, SubId,
@@ -45,7 +43,7 @@ const int MAXPERIOD = 8;
 string  nameTeacher, month, subjectTeacher, school_location,
 emailTeacher, nameSub, subjectSub, emailSub, Arrayj[10], Ordinal [32];
 
-
+char ProgrammerEmail[21];
 
 int main()
 {
@@ -140,10 +138,10 @@ int main()
 				"th","th","th","th","th","th","th","th","th","th",
 				"th","st","nd","rd","th","th","th","th","th","th",
 				"th","st" );
-			
+
 
 			cout << date << Ordinal[(date - 1)] << endl;*/
-		
+
 
 			do
 			{
@@ -229,7 +227,7 @@ int main()
 			cin >> periodNumber;
 
 			// max period check
-			
+
 			while (periodNumber > MAXPERIOD)
 			{
 				cout << "this is a invalid period number, please enter the amount of class periods you have in a day...";
@@ -256,7 +254,7 @@ int main()
 
 			// WORKING WITH VOID ARRAYS
 
-			/*listPrint(numberi, Arrayi); 
+			/*listPrint(numberi, Arrayi);
 			cout << "Enter how many periods there will be...";
 			double numberj;
 			cin >> numberj;
@@ -276,42 +274,47 @@ int main()
 
 		// using the file imput and output function 
 		{
-			ofstream outstream;
+			/*ofstream outstream;
 			outstream.open("Teacher_Request.dat");
 			if (outstream.fail())
 			{
 				cout << "the output file opening failed.\n";
 				exit(1);
 			}
-			outstream << nameTeacher<<endl << month<<endl << date<<endl << school_location <<endl<<room_number <<endl<< subjectTeacher<<endl  << emailTeacher;
-			outstream.close();
+			outstream << nameTeacher << endl << month << endl << date << endl << school_location << endl << room_number << endl << subjectTeacher << endl << emailTeacher;
+			outstream.close();*/
 		}
 
 		//Working with Character I/O (output to file)
-		cout << "Enter how many characters long your email is...";
+
+		//this was failed methoed for PM09a
+
+		/*cout << "Enter how many characters long your email is...";
 		int EmailLength;
 		cin >> EmailLength;
 		cout << "enter your email, when done entering email finish with a coma";
 		char cArray[100];
-		char TeacherEmail;
+		char TeacherEmail{};
+
 		for (int i = 0; i <= (EmailLength-1); i++)
 		{
 			while (TeacherEmail != ',')
 			{
 				cArray[i] = TeacherEmail;
 			}
+		}*/
+
+	
+		strcpy(ProgrammerEmail, "Amims123@hotmail.com");
+		ofstream outstream;
+		outstream.open("Teacher_Email.dat");
+		if (outstream.fail())
+		{
+			cout << "the output file opening failed.\n";
+			exit(1);
 		}
-		
-		
-			ofstream outstream;
-			outstream.open("Teacher_Email.txt");
-			if (outstream.fail())
-			{
-				cout << "the output file opening failed.\n";
-				exit(1);
-			}
-			outstream << cArray[100];
-			outstream.close();
+		outstream << ProgrammerEmail[21];
+		outstream.close();
 
 
 	}
@@ -321,13 +324,13 @@ int main()
 		{
 			cout << "welcome substitute\n";
 			cout << "note: when entering in your information please use no spaces and no capital letters\n";
-			
+
 			cout << "Enter your name...";
 			cin >> nameSub;
-			
+
 			cout << "Enter your sub id #";
 			cin >> SubId;
-			
+
 			do
 			{
 				cout << "Enter your preferred subject\n";
@@ -365,25 +368,35 @@ int main()
 			cin >> final_check_sub;
 		} while (final_check_sub != 1);
 
-		ifstream instream;
+		/*ifstream instream;
 		instream.open("Teacher_Request.dat");
 		if (instream.fail())
 		{
 			cout << "the imput file opening failed.\n";
 			exit(1);
 		}
-		instream >> nameTeacher >> month >>  date >> school_location >> room_number >> subjectTeacher >> emailTeacher;
+		instream >> nameTeacher >> month >> date >> school_location >> room_number >> subjectTeacher >> emailTeacher;
 		cout << "NAME: " << nameTeacher << " DATE: " << month << " " << date << " LOCATION: " << school_location << " in room " << room_number << " SUBJECT: " << subjectTeacher << " TEACHER EMAIL: " << emailTeacher;
+		instream.close();*/
+
+
+
+		ifstream instream;
+		instream.open("Teacher_Email.dat");
+		if (instream.fail())
+		{
+			cout << "the imput file opening failed.\n";
+			exit(1);
+		}
+		instream >> ProgrammerEmail[21];
+		cout << ProgrammerEmail;
 		instream.close();
-
-		//
-
-
 		
 
 		// Working on Character I/O
 
-		cout << "Was all that imformation correct?";
+		//FAiled attempt working with PM09a
+		/*cout << "Was all that imformation correct?";
 		char streamCheck;
 		cin.get(streamCheck);
 		while ((streamCheck = 'Y') || (streamCheck = 'y'));
@@ -395,7 +408,7 @@ int main()
 		{
 			cout << "oh no";
 			return 0;
-		}
+		}*/
 	}
 }
 
