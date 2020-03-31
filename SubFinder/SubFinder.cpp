@@ -244,7 +244,7 @@ int main()
 			cin >> numberj;
 			for (int j = 0; j < numberj; j++)
 			{
-				cout << "Enter the student leader for period " << j+1<<"...";
+				cout << "Enter the name of the student leader for period " << j+1<<"...";
 				cin >> Arrayj [j];
 			}
 			listPrint(numberj, Arrayj);
@@ -342,7 +342,7 @@ int main()
 			exit(1);
 		}
 		instream >> nameTeacher >> month >> date >> school_location >> room_number >> subjectTeacher >> emailTeacher;
-		cout << "NAME: " << nameTeacher << " DATE: " << month << " " << date << " LOCATION: " << school_location << " in room " << room_number << " SUBJECT: " << subjectTeacher << " TEACHER EMAIL: " << emailTeacher;
+		cout << "Teacher name: " << nameTeacher << " Teacher email: " << emailTeacher << " Subject: " << subjectTeacher<< endl << "Date of subsitution: " << month << " " << date << " Location of subsitution: " << school_location << " in room " << room_number;
 		instream.close();
 
 		// Outputting the c-string 
