@@ -1,9 +1,9 @@
 // File Name: SubFinder.cpp
 // Author: Alayna Perryman
 // Email Address: Amperryman@my.milligan.edu
-// Assignment Number: PM09a
+// Assignment Number: PM09b
 // Description: Program to conect teachers and substitues 
-// Last changed: 03/25/20
+// Last changed: 03/31/20
 
 #include <iostream>
 #include <string>
@@ -41,9 +41,9 @@ void listPrint(double numberj, string Arrayj []);
 const int MAXPERIOD = 8;
 
 string  nameTeacher, month, subjectTeacher, school_location,
-emailTeacher, nameSub, subjectSub, emailSub, Arrayj[10], Ordinal [32];
+emailTeacher, nameSub, subjectSub, emailSub, Arrayj[10];
 
-char ProgrammerEmail[21];
+//char ProgrammerEmail[21];
 
 int main()
 {
@@ -62,7 +62,7 @@ int main()
 
 			cout << "note: when entering in your information please use no spaces and no capital letters\n";
 
-			cout << "Enter your name(i.e. miss.conners)...";
+			cout << "Enter your name(i.e Last,First)...";
 			cin >> nameTeacher;
 
 			cout << "Enter your email address...";
@@ -130,19 +130,6 @@ int main()
 				cout << "Enter day of the substition(i.e. 12)...";
 				cin >> date;
 			} while (date >= 31);
-
-			// Working with Ordinal's (This is currently not working)
-
-
-			/*Ordinal[32] = ( "st","nd","rd","th","th","th","th","th","th",
-				"th","th","th","th","th","th","th","th","th","th",
-				"th","st","nd","rd","th","th","th","th","th","th",
-				"th","st" );
-
-
-			cout << date << Ordinal[(date - 1)] << endl;*/
-
-
 			do
 			{
 				cout << "Select the subject\n";
@@ -171,7 +158,6 @@ int main()
 					break;
 				}
 			} while (choiceTeacher > 5);
-
 
 			do
 			{
@@ -202,12 +188,10 @@ int main()
 				}
 			} while (choiceSchool > 5);
 
-
 			cout << "Enter room number...";
 			cin >> room_number;
 
-
-			/*do
+			do
 			{
 				cout << "Select the type of day\n";
 				cout << "Enter 1 if it will be a FULL DAY\n"
@@ -236,7 +220,7 @@ int main()
 
 			//working with Arrays, userdefined functions, and predefined functions
 
-			/*cout << "Each period will be " << ceil (timePeriod(dayType, periodNumber)) << " mins long.\n";
+			cout << "Each period will be " << ceil (timePeriod(dayType, periodNumber)) << " mins long.\n";
 			int totalStudents = 0;
 			for (int i = 0; i < periodNumber; i++)
 			{
@@ -254,7 +238,7 @@ int main()
 
 			// WORKING WITH VOID ARRAYS
 
-			/*listPrint(numberi, Arrayi);
+			listPrint(numberi, Arrayi);
 			cout << "Enter how many periods there will be...";
 			double numberj;
 			cin >> numberj;
@@ -264,9 +248,9 @@ int main()
 				cin >> Arrayj [j];
 			}
 			listPrint(numberj, Arrayj);
-			/*cout << nameTeacher << endl << emailTeacher << endl << "The subsitution will take place on " << month << " " << date << endl;
+			cout << nameTeacher << endl << emailTeacher << endl << "The subsitution will take place on " << month << " " << date << endl;
 			cout << "The subsitution will take place at " << school_location << " in room " << room_number << endl;
-			cout << "the total number of students you have throughout the day is " << totalStudents << endl;*/
+			cout << "the total number of students you have throughout the day is " << totalStudents << endl;
 			cout << "Enter 1 if finished?";
 			cin >> final_check_teacher;
 
@@ -274,7 +258,7 @@ int main()
 
 		// using the file imput and output function 
 		{
-			/*ofstream outstream;
+			ofstream outstream;
 			outstream.open("Teacher_Request.dat");
 			if (outstream.fail())
 			{
@@ -282,31 +266,12 @@ int main()
 				exit(1);
 			}
 			outstream << nameTeacher << endl << month << endl << date << endl << school_location << endl << room_number << endl << subjectTeacher << endl << emailTeacher;
-			outstream.close();*/
+			outstream.close();
 		}
-
-		//Working with Character I/O (output to file)
-
-		//this was failed methoed for PM09a
-
-		/*cout << "Enter how many characters long your email is...";
-		int EmailLength;
-		cin >> EmailLength;
-		cout << "enter your email, when done entering email finish with a coma";
-		char cArray[100];
-		char TeacherEmail{};
-
-		for (int i = 0; i <= (EmailLength-1); i++)
-		{
-			while (TeacherEmail != ',')
-			{
-				cArray[i] = TeacherEmail;
-			}
-		}*/
 
 		//Imputing the c-string 
 
-		strcpy_s(ProgrammerEmail, "Amims123@hotmail.com");
+		/*strcpy_s(ProgrammerEmail, "Amims123@hotmail.com");
 		ofstream outstream;
 		outstream.open("Teacher_Email.dat");
 		if (outstream.fail())
@@ -318,10 +283,9 @@ int main()
 		{
 			outstream.put(ProgrammerEmail[i]);
 		}
-		outstream.close();
-
-
+		outstream.close();*/
 	}
+
 	else if (x == 0)
 	{
 		do
@@ -366,13 +330,11 @@ int main()
 
 			cout << "Enter email...";
 			cin >> emailSub;
-
-			cout << nameSub << endl << SubId << endl << emailSub << endl << "Your perferred subject is " << subjectSub << endl;
 			cout << "Enter 1 if finished?";
 			cin >> final_check_sub;
 		} while (final_check_sub != 1);
 
-		/*ifstream instream;
+		ifstream instream;
 		instream.open("Teacher_Request.dat");
 		if (instream.fail())
 		{
@@ -381,12 +343,11 @@ int main()
 		}
 		instream >> nameTeacher >> month >> date >> school_location >> room_number >> subjectTeacher >> emailTeacher;
 		cout << "NAME: " << nameTeacher << " DATE: " << month << " " << date << " LOCATION: " << school_location << " in room " << room_number << " SUBJECT: " << subjectTeacher << " TEACHER EMAIL: " << emailTeacher;
-		instream.close();*/
-
+		instream.close();
 
 		// Outputting the c-string 
 
-		ifstream instream;
+		/*ifstream instream;
 		instream.open("Teacher_Email.dat");
 		if (instream.fail())
 		{
@@ -398,12 +359,9 @@ int main()
 			instream.get(ProgrammerEmail[i]);
 			cout << ProgrammerEmail[i];
 		}
-		instream.close();
-		
+		instream.close();*/
 	}
 }
-
-
 
 //function declaration 
 double timePeriod(double dayType, int periodNumber)
