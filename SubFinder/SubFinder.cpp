@@ -38,6 +38,17 @@ void listPrint(double numberj, string Arrayj []);
 //array to enters the name of the student leader for each period
 //Postcondition: outputs for which class period who is the leader
 
+void sort(int a[], int periodNumber);
+//Preconditions: periodnumber is the size of the array (a[o] through a[periodnumber - 1])
+//Postconditions: the numbers in the array will be moved around so that the largest number will be the a[periodnumber-1]
+
+int indexofsmallest(const int a[], int startindex, int periodNumber);
+//preconditions: startindex >= 0, period number is > than startindex
+//postcondtions: returns the index i so that a[i] is the smallest value
+
+void swapValues(int& v1, int& v2);
+//postconditions: interchanges the valuse of v2 and v1
+
 const int MAXPERIOD = 8;
 
 string  nameTeacher, month, subjectTeacher, school_location,
@@ -228,6 +239,14 @@ int main()
 				cin >> number_of_students[i];
 				totalStudents += number_of_students[i];
 			}
+
+			//working with Sorting/Seaching arrays
+			
+			sort(number_of_students, periodNumber);
+			cout << "The largest class size will be ";
+			cout << number_of_students[periodNumber - 1] <<endl;
+
+
 			cout << "Enter how many days you need a subsitute for...";
 			cin >> numberi;
 			cout << "Enter the dates of the day or days your going to miss...\n";
@@ -239,15 +258,13 @@ int main()
 			// WORKING WITH VOID ARRAYS
 
 			listPrint(numberi, Arrayi);
-			cout << "Enter how many periods there will be...";
-			double numberj;
-			cin >> numberj;
-			for (int j = 0; j < numberj; j++)
+			
+			for (int j = 0; j < periodNumber; j++)
 			{
 				cout << "Enter the name of the student leader for period " << j+1<<"...";
 				cin >> Arrayj [j];
 			}
-			listPrint(numberj, Arrayj);
+			listPrint(periodNumber, Arrayj);
 			cout << nameTeacher << endl << emailTeacher << endl << "The subsitution will take place on " << month << " " << date << endl;
 			cout << "The subsitution will take place at " << school_location << " in room " << room_number << endl;
 			cout << "the total number of students you have throughout the day is " << totalStudents << endl;
@@ -377,10 +394,38 @@ void listPrint(int numberi, int Arrayi [])
 		cout << "The " << i + 1 << Ordinal[i] << " day you will miss is the " << Arrayi[i] << Ordinal[Arrayi[i]-1] << endl;
 	}
 }
-void listPrint(double numberj, string Arrayj[])
+void listPrint(double periodnumber, string Arrayj[])
 {
-	for (int i = 0; i < numberj; i++)
+	for (int i = 0; i < periodNumber; i++)
 	{
 		cout << "the student leader of period " << i + 1 << " is " << Arrayj[i] << endl;
 	}
+}
+void sort(int a[], int periodNumber)
+{
+	int indexofnextsmallest;
+	for (int index = 0; index < periodNumber - 1; index++)
+	{
+		indexofnextsmallest = indexofsmallest(a, index, periodNumber);
+		swapValues(a[index], a[indexofnextsmallest]);
+	}
+}
+void swapValues(int& v1, int& v2)
+{
+	int swap;
+	swap = v1;
+	v1 = v2;
+	v2 = swap;
+}
+int indexofsmallest(const int a[], int startindex, int periodNumber)
+{
+	int min = a[startindex];
+	int indexofmin = startindex;
+	for (int index = startindex + 1; index < periodNumber; index++)
+		if (a[index] < min)
+		{
+			min = a[index];
+			indexofmin = index;
+		}
+	return indexofmin;
 }
