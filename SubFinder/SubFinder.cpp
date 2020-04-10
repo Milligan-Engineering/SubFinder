@@ -1,9 +1,9 @@
 // File Name: SubFinder.cpp
 // Author: Alayna Perryman
 // Email Address: Amperryman@my.milligan.edu
-// Assignment Number: PM10a
+// Assignment Number: PM10b
 // Description: Program to conect teachers and substitues 
-// Last changed: 04/07/20
+// Last changed: 04/09/20
 
 #include <iostream>
 #include <string>
@@ -20,7 +20,7 @@ ofstream outstream;
 
 int  date, room_number, number_students, age, x, periodNumber, number_of_students[8],
 final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool, SubId,
-choiceMonth, choiceDay,Arrayi [31], numberi;
+choiceMonth, choiceDay,Arrayi [31], numberi ;
 
 double dayType, numberj;
 
@@ -244,8 +244,21 @@ int main()
 			
 			sort(number_of_students, periodNumber);
 			cout << "The largest class size will be ";
-			cout << number_of_students[periodNumber - 1] <<endl;
+			cout << number_of_students[periodNumber - 1] << endl;
 
+			//working with a multidimensional array
+
+			string student_name_list[99][99];
+			int index1, index2,index3;
+			for (index1 = 0; index1 < periodNumber; index1++)
+			{
+				for (index2 = 0; index2 < number_of_students[index1]; index2++)
+				{
+					cout << "type the name of student " << index2 + 1 << " for period " << index1 + 1 << endl;
+					cin >> student_name_list[index1][index2];
+				}
+			}
+			cout << student_name_list[0][0] << endl;
 
 			cout << "Enter how many days you need a subsitute for...";
 			cin >> numberi;
