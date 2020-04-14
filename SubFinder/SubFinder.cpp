@@ -20,7 +20,7 @@ ofstream outstream;
 
 int  date, room_number, number_students, age, x, periodNumber, number_of_students[8],
 final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool, SubId,
-choiceMonth, choiceDay,Arrayi [31], numberi ;
+choiceMonth, choiceDay,Arrayi [31], numberi, year;
 
 double dayType, numberj;
 
@@ -141,6 +141,13 @@ int main()
 				cout << "Enter day of the substition(i.e. 12)...";
 				cin >> date;
 			} while (date >= 31);
+
+			do
+			{
+				cout << "Enter the year od the substition(i.e. 2020)...";
+				cin >> year;
+			} while (year < 2019);
+
 			do
 			{
 				cout << "Select the subject\n";
