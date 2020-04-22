@@ -1,9 +1,9 @@
 // File Name: SubFinder.cpp
 // Author: Alayna Perryman
 // Email Address: Amperryman@my.milligan.edu
-// Assignment Number: PM10b
+// Assignment Number: PM11b
 // Description: Program to conect teachers and substitues 
-// Last changed: 04/09/20
+// Last changed: 04/21/20
 
 #include <iostream>
 #include <string>
@@ -20,7 +20,7 @@ ofstream outstream;
 
 int  date, room_number, number_students, age, x, periodNumber, number_of_students[8],
 final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool, SubId,
-choiceMonth, choiceDay,Arrayi [31], numberi, year;
+choiceMonth, choiceDay,Arrayi [31], numberi;
 
 double dayType, numberj;
 
@@ -56,8 +56,19 @@ emailTeacher, nameSub, subjectSub, emailSub, Arrayj[10];
 
 //char ProgrammerEmail[21];
 
+class date_of_substitution
+{
+public:
+	void month();
+	int day;
+	int year;
+};
+
+
+
 int main()
 {
+	date_of_substitution teacherDate;
 	cout << "If you are a teacher please enter 1, if you are a substitute please enter 0...";
 	cin >> x;
 	while (x != 1 && x != 0)
@@ -79,74 +90,13 @@ int main()
 			cout << "Enter your email address...";
 			cin >> emailTeacher;
 
-			do
-			{
-				cout << "Select month of substition\n";
-				cout << "Choose 1 for JANUARY.\n"
-					<< "Choose 2 for FEBRUARY.\n"
-					<< "Choose 3 for MARCH.\n"
-					<< "Choose 4 for APRIL.\n"
-					<< "Choose 5 for MAY.\n"
-					<< "Choose 6 for JUNE.\n"
-					<< "Choose 7 for JULY.\n"
-					<< "Choose 8 for AUGUST.\n"
-					<< "Choose 9 for SEPTEMBER.\n"
-					<< "Choose 10 for OCTOBER.\n"
-					<< "Choose 11 for NOVEMBER.\n"
-					<< "Choose 12 for DECEMBER.\n";
-				cin >> choiceMonth;
-				switch (choiceMonth)
-				{
-				case 1:
-					month = "January";
-					break;
-				case 2:
-					month = "February";
-					break;
-				case 3:
-					month = "March";
-					break;
-				case 4:
-					month = "April";
-					break;
-				case 5:
-					month = "May";
-					break;
-				case 6:
-					month = "June";
-					break;
-				case 7:
-					month = "July";
-					break;
-				case 8:
-					month = "August";
-					break;
-				case 9:
-					month = "September";
-					break;
-				case 10:
-					month = "October";
-					break;
-				case 11:
-					month = "November";
-					break;
-				case 12:
-					month = "December";
-					break;
-				}
-			} while (choiceMonth > 12);
+			teacherDate.month();
 
-			do
-			{
-				cout << "Enter day of the substition(i.e. 12)...";
-				cin >> date;
-			} while (date >= 31);
+			cout << "Enter the date of month of substition...";
+			cin >> teacherDate.day;
 
-			do
-			{
-				cout << "Enter the year od the substition(i.e. 2020)...";
-				cin >> year;
-			} while (year < 2019);
+			cout << "Enter the year of the substition...";
+			cin >> teacherDate.year;
 
 			do
 			{
@@ -285,7 +235,7 @@ int main()
 				cin >> Arrayj [j];
 			}
 			listPrint(periodNumber, Arrayj);
-			cout << nameTeacher << endl << emailTeacher << endl << "The subsitution will take place on " << month << " " << date << endl;
+			cout << nameTeacher << endl << emailTeacher << endl;
 			cout << "The subsitution will take place at " << school_location << " in room " << room_number << endl;
 			cout << "the total number of students you have throughout the day is " << totalStudents << endl;
 			cout << "Enter 1 if finished?";
@@ -302,7 +252,7 @@ int main()
 				cout << "the output file opening failed.\n";
 				exit(1);
 			}
-			outstream << nameTeacher << endl << month << endl << date << endl << school_location << endl << room_number << endl << subjectTeacher << endl << emailTeacher;
+			outstream << nameTeacher << endl << school_location << endl << room_number << endl << subjectTeacher << endl << emailTeacher;
 			outstream.close();
 		}
 
@@ -378,8 +328,8 @@ int main()
 			cout << "the imput file opening failed.\n";
 			exit(1);
 		}
-		instream >> nameTeacher >> month >> date >> school_location >> room_number >> subjectTeacher >> emailTeacher;
-		cout << "Teacher name: " << nameTeacher << " Teacher email: " << emailTeacher << " Subject: " << subjectTeacher<< endl << "Date of subsitution: " << month << " " << date << " Location of subsitution: " << school_location << " in room " << room_number;
+		instream >> nameTeacher >> school_location >> room_number >> subjectTeacher >> emailTeacher;
+		cout << "Teacher name: " << nameTeacher << " Teacher email: " << emailTeacher << " Subject: " << subjectTeacher<< endl << "Date of subsitution: " << " Location of subsitution: " << school_location << " in room " << room_number;
 		instream.close();
 
 		// Outputting the c-string 
@@ -401,6 +351,7 @@ int main()
 }
 
 //function declaration 
+
 double timePeriod(double dayType, int periodNumber)
 {
 	double periodtime = (dayType / periodNumber);
@@ -448,4 +399,67 @@ int indexofsmallest(const int a[], int startindex, int periodNumber)
 			indexofmin = index;
 		}
 	return indexofmin;
+}
+
+void date_of_substitution::month()
+{
+	string months;
+	do
+	{
+		
+		cout << "Select month of substition\n";
+		cout << "Choose 1 for JANUARY.\n"
+			<< "Choose 2 for FEBRUARY.\n"
+			<< "Choose 3 for MARCH.\n"
+			<< "Choose 4 for APRIL.\n"
+			<< "Choose 5 for MAY.\n"
+			<< "Choose 6 for JUNE.\n"
+			<< "Choose 7 for JULY.\n"
+			<< "Choose 8 for AUGUST.\n"
+			<< "Choose 9 for SEPTEMBER.\n"
+			<< "Choose 10 for OCTOBER.\n"
+			<< "Choose 11 for NOVEMBER.\n"
+			<< "Choose 12 for DECEMBER.\n";
+		cin >> choiceMonth;
+		switch (choiceMonth)
+		{
+		case 1:
+			months = "January";
+			break;
+		case 2:
+			months = "February";
+			break;
+		case 3:
+			months = "March";
+			break;
+		case 4:
+			months = "April";
+			break;
+		case 5:
+			months = "May";
+			break;
+		case 6:
+			months = "June";
+			break;
+		case 7:
+			months = "July";
+			break;
+		case 8:
+			months = "August";
+			break;
+		case 9:
+			months = "September";
+			break;
+		case 10:
+			months = "October";
+			break;
+		case 11:
+			months = "November";
+			break;
+		case 12:
+			months = "December";
+			break;
+		}
+	} while (choiceMonth > 12);
+	cout << months << endl;
 }
