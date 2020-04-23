@@ -1,9 +1,9 @@
 // File Name: SubFinder.cpp
 // Author: Alayna Perryman
 // Email Address: Amperryman@my.milligan.edu
-// Assignment Number: PM11b
+// Assignment Number: PM11b3
 // Description: Program to conect teachers and substitues 
-// Last changed: 04/21/20
+// Last changed: 04/23/20
 
 #include <iostream>
 #include <string>
