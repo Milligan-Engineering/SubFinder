@@ -1,9 +1,9 @@
 // File Name: SubFinder.cpp
 // Author: Alayna Perryman
 // Email Address: Amperryman@my.milligan.edu
-// Assignment Number: PM11b
+// Assignment Number: PM11b1
 // Description: Program to conect teachers and substitues 
-// Last changed: 04/21/20
+// Last changed: 04/23/20
 
 #include <iostream>
 #include <string>
@@ -18,7 +18,7 @@ ifstream instream;
 ofstream outstream;
 
 
-int  date, room_number, number_students, age, x, periodNumber, number_of_students[8],
+int room_number, number_students, age, x, periodNumber, number_of_students[8],
 final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool, SubId,
 choiceMonth, choiceDay,Arrayi [31], numberi;
 
@@ -56,7 +56,7 @@ emailTeacher, nameSub, subjectSub, emailSub, Arrayj[10];
 
 //char ProgrammerEmail[21];
 
-class date_of_substitution
+class date
 {
 public:
 	void month();
@@ -68,7 +68,7 @@ public:
 
 int main()
 {
-	date_of_substitution teacherDate;
+	date teacherDate;
 	cout << "If you are a teacher please enter 1, if you are a substitute please enter 0...";
 	cin >> x;
 	while (x != 1 && x != 0)
@@ -401,7 +401,7 @@ int indexofsmallest(const int a[], int startindex, int periodNumber)
 	return indexofmin;
 }
 
-void date_of_substitution::month()
+void date::month()
 {
 	string months;
 	do
