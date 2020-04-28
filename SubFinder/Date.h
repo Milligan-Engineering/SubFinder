@@ -1,10 +1,11 @@
 class date
 {
 public:
-	void month();
+	void output();
+	string month;
 	int day;
 	int year;
 private:
-	string months;
-	int choiceMonth;
+	int daylimit;
+	int yearlimit;
 };
