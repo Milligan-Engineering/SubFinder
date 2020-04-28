@@ -1,26 +1,21 @@
 // File Name: SubFinder.cpp
 // Author: Alayna Perryman
 // Email Address: Amperryman@my.milligan.edu
-// Assignment Number: PM11b3
+// Assignment Number: PM13
 // Description: Program to conect teachers and substitues 
-// Last changed: 04/23/20
+// Last changed: 04/27/20
 
-#include <iostream>
-#include <string>
-#include <cmath>
-#include <fstream>
-//# <cstdlib>
-
-using namespace std;
+#include "stdafx.h"
+#include "Date.h"
 
 //file imput and output
 ifstream instream;
 ofstream outstream;
 
 
+
 int  room_number, number_students, age, x, periodNumber, number_of_students[8],
-final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool, SubId,
-choiceMonth, choiceDay,Arrayi [31], numberi;
+final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool, SubId,Arrayi [31], numberi;
 
 double dayType, numberj;
 
@@ -49,22 +44,13 @@ int indexofsmallest(const int a[], int startindex, int periodNumber);
 void swapValues(int& v1, int& v2);
 //postconditions: interchanges the valuse of v2 and v1
 
-const int MAXPERIOD = 8;
-
 string  nameTeacher, month, subjectTeacher, school_location,
 emailTeacher, nameSub, subjectSub, emailSub, Arrayj[10];
 
+char choiceDay;
+
 //char ProgrammerEmail[21];
 
-class date
-{
-public:
-	void month();
-	int day;
-	int year;
-private:
-	string months;
-};
 
 int main()
 {
@@ -159,22 +145,20 @@ int main()
 			cout << "Enter room number...";
 			cin >> room_number;
 
-			do
+			cout << "Select the type of day\n";
+			cout << "Type 'F' if it will be a FULL DAY\n"
+				<< "Type 'H' if it will be a HALF DAY\n";
+			cin >> choiceDay;
+			switch (choiceDay)
 			{
-				cout << "Select the type of day\n";
-				cout << "Enter 1 if it will be a FULL DAY\n"
-					<< "Enter 2 if it will be a HALF DAY\n";
-				cin >> choiceDay;
-				switch (choiceDay)
-				{
-				case 1:
-					dayType = 420.0;
-					break;
-				case 2:
-					dayType = 210.0;
-					break;
-				}
-			} while (choiceDay > 2);
+			case 'F':
+				dayType = 420.0;
+				break;
+			case 'H':
+				dayType = 210.0;
+				break;
+			}
+
 			cout << "Enter how many class periods there will be...";
 			cin >> periodNumber;
 
@@ -246,7 +230,7 @@ int main()
 		// using the file imput and output function 
 		{
 			ofstream outstream;
-			outstream.open("Teacher_Request.dat");
+			outstream.open("Teacher_Request1.dat");
 			if (outstream.fail())
 			{
 				cout << "the output file opening failed.\n";
@@ -255,22 +239,6 @@ int main()
 			outstream << nameTeacher << endl << school_location << endl << room_number << endl << subjectTeacher << endl << emailTeacher;
 			outstream.close();
 		}
-
-		//Imputing the c-string 
-
-		/*strcpy_s(ProgrammerEmail, "Amims123@hotmail.com");
-		ofstream outstream;
-		outstream.open("Teacher_Email.dat");
-		if (outstream.fail())
-		{
-			cout << "the output file opening failed.\n";
-			exit(1);
-		}
-		for (int i = 0; i < 21; i++)
-		{
-			outstream.put(ProgrammerEmail[i]);
-		}
-		outstream.close();*/
 	}
 
 	else if (x == 0)
@@ -322,31 +290,16 @@ int main()
 		} while (final_check_sub != 1);
 
 		ifstream instream;
-		instream.open("Teacher_Request.dat");
+		instream.open("Teacher_Request1.dat");
 		if (instream.fail())
 		{
 			cout << "the imput file opening failed.\n";
 			exit(1);
 		}
 		instream >> nameTeacher >> school_location >> room_number >> subjectTeacher >> emailTeacher;
-		cout << "Teacher name: " << nameTeacher << " Teacher email: " << emailTeacher << " Subject: " << subjectTeacher<< endl << "Date of subsitution: " << " Location of subsitution: " << school_location << " in room " << room_number;
+		cout << "Teacher name: " << nameTeacher << " Teacher email: " << emailTeacher << " Subject: " << subjectTeacher<< endl << " Location of subsitution: " << school_location << " in room " << room_number;
 		instream.close();
 
-		// Outputting the c-string 
-
-		/*ifstream instream;
-		instream.open("Teacher_Email.dat");
-		if (instream.fail())
-		{
-			cout << "the imput file opening failed.\n";
-			exit(1);
-		}
-		for (int i = 0; i < 21; i++)
-		{
-			instream.get(ProgrammerEmail[i]);
-			cout << ProgrammerEmail[i];
-		}
-		instream.close();*/
 	}
 }
 
@@ -401,64 +354,3 @@ int indexofsmallest(const int a[], int startindex, int periodNumber)
 	return indexofmin;
 }
 
-void date::month()
-{
-	do
-	{
-		
-		cout << "Select month of substition\n";
-		cout << "Choose 1 for JANUARY.\n"
-			<< "Choose 2 for FEBRUARY.\n"
-			<< "Choose 3 for MARCH.\n"
-			<< "Choose 4 for APRIL.\n"
-			<< "Choose 5 for MAY.\n"
-			<< "Choose 6 for JUNE.\n"
-			<< "Choose 7 for JULY.\n"
-			<< "Choose 8 for AUGUST.\n"
-			<< "Choose 9 for SEPTEMBER.\n"
-			<< "Choose 10 for OCTOBER.\n"
-			<< "Choose 11 for NOVEMBER.\n"
-			<< "Choose 12 for DECEMBER.\n";
-		cin >> choiceMonth;
-		switch (choiceMonth)
-		{
-		case 1:
-			months = "January";
-			break;
-		case 2:
-			months = "February";
-			break;
-		case 3:
-			months = "March";
-			break;
-		case 4:
-			months = "April";
-			break;
-		case 5:
-			months = "May";
-			break;
-		case 6:
-			months = "June";
-			break;
-		case 7:
-			months = "July";
-			break;
-		case 8:
-			months = "August";
-			break;
-		case 9:
-			months = "September";
-			break;
-		case 10:
-			months = "October";
-			break;
-		case 11:
-			months = "November";
-			break;
-		case 12:
-			months = "December";
-			break;
-		}
-	} while (choiceMonth > 12);
-	cout << months << endl;
-}

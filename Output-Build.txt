@@ -1,0 +1,6 @@
+﻿1>------ Build started: Project: SubFinder, Configuration: Debug Win32 ------
+1>SubFinder.cpp
+1>C:\Users\Amims\source\repos\SubFinder\SubFinder\SubFinder.cpp(193,23): warning C4101: 'index3': unreferenced local variable
+1>SubFinder.vcxproj -> C:\Users\Amims\source\repos\SubFinder\Debug\SubFinder.exe
+1>Done building project "SubFinder.vcxproj".
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
