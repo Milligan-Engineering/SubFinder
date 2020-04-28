@@ -253,6 +253,7 @@ int main()
 			cout << "Enter your name...";
 			cin >> nameSub;
 
+			//Why?
 			cout << "Enter your sub id # (after each character press enter)\n";
 			for(int i = 0;  i < 8; i++)
 			{
