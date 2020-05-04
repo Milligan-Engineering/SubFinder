@@ -12,8 +12,11 @@ public:
 	//Accessor
 	int getday();
 
+	int setmonth(int themonth);
+
 
 private:
+	int monthlimit;
 	int daylimit;
 	int yearlimit;
 	int day;

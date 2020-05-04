@@ -2,6 +2,7 @@
 #include "Date.h"
 void date::output()
 {
+	monthlimit = 12;
 	daylimit = 31;
 	yearlimit = 2020;
 	if ((day <= daylimit) && (year >= yearlimit))
@@ -10,7 +11,7 @@ void date::output()
 	}
 	else
 	{
-		cout << "You have entered a incorrect date. aborting Program";
+		cout << "You have entered a incorrect date. Aborting Program";
 		exit(1);
 	}
 }
@@ -26,4 +27,11 @@ int date::setday(int theDay)
 int date::getday()
 {
 	return(day);
+}
+
+int date::setmonth(int themonth)
+{
+	string arraymonth[12] = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+	month = arraymonth[(themonth - 1)];
+	return (1);
 }

@@ -3,7 +3,7 @@
 // Email Address: Amperryman@my.milligan.edu
 // Assignment Number: PM13
 // Description: Program to conect teachers and substitues 
-// Last changed: 04/27/20
+// Last changed: 05/04/20
 
 #include "stdafx.h"
 #include "Date.h"
@@ -58,8 +58,10 @@ int main()
 			cout << "Enter your email address...";
 			cin >> emailTeacher;
 
-			cout << "Type the month of substition...";
-			cin >> teacherDate.month;
+			cout << "Enter the number of the month of substition(ie 1 for January)...";
+			int monthin;
+			cin >> monthin;
+			teacherDate.setmonth(monthin);
 
 			cout << "Enter the date of month of substition (i.e. 20)...";
 			int dayIn;
