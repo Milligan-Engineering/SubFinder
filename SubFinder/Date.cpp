@@ -14,3 +14,16 @@ void date::output()
 		exit(1);
 	}
 }
+
+// Mutator
+int date::setday(int theDay)
+{
+	day = theDay;
+	return (1);
+}
+
+//Accessor
+int date::getday()
+{
+	return(day);
+}

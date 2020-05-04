@@ -62,7 +62,9 @@ int main()
 			cin >> teacherDate.month;
 
 			cout << "Enter the date of month of substition (i.e. 20)...";
-			cin >> teacherDate.day;
+			int dayIn;
+			cin >> dayIn;
+			teacherDate.setday(dayIn);
 
 			cout << "Enter the year of the substition (i.e. 2020)...";
 			cin >> teacherDate.year;
