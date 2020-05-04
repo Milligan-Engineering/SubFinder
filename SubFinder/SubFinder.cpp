@@ -17,6 +17,13 @@ double timePeriod(double dayType, int periodNumber);
 // Precondition: enter the minutes during day and divide by the number of periods
 //Postconditon: returns the mins per period
 
+struct date2
+{
+	int submonthNUM;
+	int subdateNUM;
+	int subyearNUM;
+};
+
 int  room_number, number_students, age, x, periodNumber, number_of_students[8],
 final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool, Arrayi [31], numberi;
 
@@ -245,6 +252,18 @@ int main()
 
 			cout << "Enter email...";
 			cin >> emailSub;
+
+			date2 currentdate;
+
+			cout << "Enter the month number(ie january = 1, october = 10)...";
+			cin >> currentdate.submonthNUM;
+
+			cout << "Enter today's date(ie 20)...";
+			cin >> currentdate.subdateNUM;
+
+			cout << "Enter the year(ie 2020)...";
+			cin >> currentdate.subyearNUM;
+
 			cout << "Enter 1 if finished?";
 			cin >> final_check_sub;
 		} while (final_check_sub != 1);
