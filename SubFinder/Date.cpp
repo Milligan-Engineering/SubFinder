@@ -2,7 +2,6 @@
 #include "Date.h"
 void date::output()
 {
-	monthlimit = 12;
 	daylimit = 31;
 	yearlimit = 2020;
 	if ((day <= daylimit) && (year >= yearlimit))

@@ -1,7 +1,6 @@
 // File Name: SubFinder.cpp
 // Author: Alayna Perryman
 // Email Address: Amperryman@my.milligan.edu
-// Assignment Number: PM13
 // Description: Program to conect teachers and substitues 
 // Last changed: 05/04/20
 
@@ -24,13 +23,13 @@ struct date2
 	int subyearNUM;
 };
 
-int  room_number, number_students, age, x, periodNumber, number_of_students[8],
-final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool, Arrayi [31], numberi;
+int  room_number, x, periodNumber, number_of_students[8],
+final_check_teacher, final_check_sub, choiceTeacher, choiceSub, choiceSchool, numberi;
 
-double dayType, numberj;
+double dayType;
 
 string nameTeacher, month, subjectTeacher, school_location,
-emailTeacher, nameSub, subjectSub, emailSub, Arrayj[10];
+emailTeacher, nameSub, subjectSub, emailSub;
 
 char choiceDay, subID[9];
 
@@ -217,7 +216,7 @@ int main()
 			cout << "Enter your name...";
 			cin >> nameSub;
 
-			//Why?
+			
 			cout << "Enter your sub id # (after each character press enter)\n";
 			for(int i = 0;  i < 8; i++)
 			{
